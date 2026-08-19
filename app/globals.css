@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 215 35% 16%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 35% 16%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 35% 16%;
+    --primary: 199 89% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 199 80% 96%;
+    --secondary-foreground: 215 35% 16%;
+    --muted: 205 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 173 70% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 205 30% 90%;
+    --input: 205 30% 88%;
+    --ring: 199 89% 42%;
+    --radius: 0.75rem;
+
+    --chart-1: 199 89% 42%;
+    --chart-2: 173 70% 45%;
+    --chart-3: 43 74% 66%;
+    --chart-4: 27 87% 67%;
+    --chart-5: 340 75% 55%;
+  }
+
+  .dark {
+    --background: 215 35% 8%;
+    --foreground: 0 0% 98%;
+    --card: 215 35% 11%;
+    --card-foreground: 0 0% 98%;
+    --popover: 215 35% 11%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 199 89% 52%;
+    --primary-foreground: 215 35% 8%;
+    --secondary: 215 30% 18%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 215 30% 16%;
+    --muted-foreground: 215 15% 65%;
+    --accent: 173 60% 45%;
+    --accent-foreground: 215 35% 8%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 30% 20%;
+    --input: 215 30% 22%;
+    --ring: 199 89% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .bg-grid {
+    background-image: linear-gradient(to right, hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .bg-dots {
+    background-image: radial-gradient(hsl(var(--border)) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
